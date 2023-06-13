@@ -16,29 +16,34 @@ cd test1
 pnpm i
 
 # https://mui.com/material-ui/getting-started/templates/
-
 pnpm install @mui/material @emotion/react @emotion/styled
-
-# dashboradだと以下が必要。たぶんほかのテンプレートでも同様
+## dashboradだと以下が必要。たぶんほかのテンプレートでも同様
 pnpm install @mui/icons-material recharts
 
 mkdir src/dashboard
 cd src/dashboard
-curl -OL https://raw.githubusercontent.com/mui/material-ui/v5.5.2/docs/data/material/getting-started/templates/dashboard/Chart.tsx
-curl -OL https://raw.githubusercontent.com/mui/material-ui/v5.5.2/docs/data/material/getting-started/templates/dashboard/Dashboard.tsx
-curl -OL https://raw.githubusercontent.com/mui/material-ui/v5.5.2/docs/data/material/getting-started/templates/dashboard/Deposits.tsx
-curl -OL https://raw.githubusercontent.com/mui/material-ui/v5.5.2/docs/data/material/getting-started/templates/dashboard/Orders.tsx
-curl -OL https://raw.githubusercontent.com/mui/material-ui/v5.5.2/docs/data/material/getting-started/templates/dashboard/Title.tsx
-curl -OL https://raw.githubusercontent.com/mui/material-ui/v5.5.2/docs/data/material/getting-started/templates/dashboard/listItems.tsx
+$baseUrl = "https://raw.githubusercontent.com/mui/material-ui/v5.5.2/docs/data/material/getting-started/templates/dashboard/"
+$fileUrls = @(
+    "Chart.tsx",
+    "Dashboard.tsx",
+    "Deposits.tsx",
+    "Orders.tsx",
+    "Title.tsx",
+    "listItems.tsx"
+)
+foreach ($url in $fileUrls) {
+    $fileUrl = $baseUrl + $url
+    $destinationFile = Join-Path $destinationPath $url
+    Invoke-WebRequest -Uri $fileUrl -OutFile $destinationFile
+}
 
 cd ..
-
 @'
-import DashboardContent from './dashboard/Dashboard';
+import DashboardContent from "./dashboard/Dashboard";
 
-const App = () => {
+function App() {
   return <DashboardContent />;
-};
+}
 
 export default App;
 '@ | Set-Content -Path "App.tsx"
@@ -55,10 +60,12 @@ code .
 
 ## 参考
 
-- [TypescriptとMUIでダッシュボード作るときのテンプレ - write ahead log](https://twinbird-htn.hatenablog.com/entry/2022/09/24/111839) - curlのとこは全部コピペさせていただきました
+- [TypescriptとMUIでダッシュボード作るときのテンプレ - write ahead log](https://twinbird-htn.hatenablog.com/entry/2022/09/24/111839) - すごい参考にさせていただきました
 - [material-ui/docs/data/material/getting-started/templates/dashboard at v5.5.2 · mui/material-ui · GitHub](https://github.com/mui/material-ui/tree/v5.5.2/docs/data/material/getting-started/templates/dashboard)
 - [material-ui/docs/data/material/getting-started/templates at master · mui/material-ui · GitHub](https://github.com/mui/material-ui/tree/master/docs/data/material/getting-started/templates)
 
 ## TODO
 
 - `pnpm lint` で **エラー**になるとこを直す。buildは通るけど、さすがにエラーはダメでしょう。
+- 適当なタイミングで[テンプレートレポジトリ](https://docs.github.com/ja/repositories/creating-and-managing-repositories/creating-a-template-repository)にする
+- "@mui/icons-material" まわりでbuildが遅い理由がよくわからんのだが直したい。

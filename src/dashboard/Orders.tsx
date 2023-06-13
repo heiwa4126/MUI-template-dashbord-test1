@@ -4,7 +4,6 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import * as React from "react";
 import Title from "./Title";
 
 // Generate Order Data
@@ -26,7 +25,7 @@ function preventDefault(event: React.MouseEvent) {
 
 export default function Orders() {
   return (
-    <React.Fragment>
+    <>
       <Title>Recent Orders</Title>
       <Table size="small">
         <TableHead>
@@ -53,6 +52,6 @@ export default function Orders() {
       <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
         See more orders
       </Link>
-    </React.Fragment>
+    </>
   );
 }

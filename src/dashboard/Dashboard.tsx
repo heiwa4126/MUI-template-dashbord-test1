@@ -14,15 +14,18 @@ import Link from "@mui/material/Link";
 import List from "@mui/material/List";
 import Paper from "@mui/material/Paper";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+import Typography, { TypographyProps } from "@mui/material/Typography";
 import { ThemeProvider, createTheme, styled } from "@mui/material/styles";
-import * as React from "react";
+import { useState } from "react";
 import Chart from "./Chart";
 import Deposits from "./Deposits";
 import Orders from "./Orders";
 import { mainListItems, secondaryListItems } from "./listItems";
 
-function Copyright(props: any) {
+export type TOA = Omit<TypographyProps, "component">;
+export type TO<T extends React.ElementType> = Omit<TypographyProps<T>, "component">;
+
+function Copyright(props: TO<"p">) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {"Copyright © "}
@@ -35,7 +38,7 @@ function Copyright(props: any) {
   );
 }
 
-const drawerWidth: number = 240;
+const drawerWidth = 240;
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
@@ -86,7 +89,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== "open" 
 const mdTheme = createTheme();
 
 function DashboardContent() {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
   };

@@ -66,6 +66,6 @@ code .
 
 ## TODO
 
-- `pnpm lint` で **エラー**になるとこを直す。buildは通るけど、さすがにエラーはダメでしょう。
+- `pnpm lint` で **エラー**になるとこを直す。buildは通るけど、さすがにエラーはダメでしょう。 → done
 - 適当なタイミングで[テンプレートレポジトリ](https://docs.github.com/ja/repositories/creating-and-managing-repositories/creating-a-template-repository)にする
-- "@mui/icons-material" まわりでbuildが遅い理由がよくわからんのだが直したい。
+- "@mui/icons-material" まわりでbuildが遅い([Minimizing bundle size - Material UI](https://mui.com/material-ui/guides/minimizing-bundle-size/))。理由がよくわからん。直したい。

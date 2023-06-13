@@ -1,4 +1,4 @@
-import DashboardContent from './dashboard/Dashboard';
+import DashboardContent from "./dashboard/Dashboard";
 
 const App = () => {
   return <DashboardContent />;

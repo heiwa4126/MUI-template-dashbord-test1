@@ -54,6 +54,6 @@ code .
 
 ## 参考
 
-- [TypescriptとMUIでダッシュボード作るときのテンプレ - write ahead log](https://twinbird-htn.hatenablog.com/entry/2022/09/24/111839) - curlのとこは全部コピペ
+- [TypescriptとMUIでダッシュボード作るときのテンプレ - write ahead log](https://twinbird-htn.hatenablog.com/entry/2022/09/24/111839) - curlのとこは全部コピペさせていただきました
 - [material-ui/docs/data/material/getting-started/templates/dashboard at v5.5.2 · mui/material-ui · GitHub](https://github.com/mui/material-ui/tree/v5.5.2/docs/data/material/getting-started/templates/dashboard)
 - [material-ui/docs/data/material/getting-started/templates at master · mui/material-ui · GitHub](https://github.com/mui/material-ui/tree/master/docs/data/material/getting-started/templates)

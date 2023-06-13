@@ -7,7 +7,7 @@
 ## 手順
 
 Windows の
-PowerShell で pnpm を使った例
+PowerShell で pnpm を使った例。
 
 ```powershell
 # 参考: <https://github.com/vitejs/vite/tree/main/packages/create-vite>
@@ -51,6 +51,7 @@ code .
 
 - 不要なCSSとSVGを消す
 - index.htmlでフォントを読む
+- themeを追加
 
 ## 参考
 

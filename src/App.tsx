@@ -1,7 +1,7 @@
 import DashboardContent from "./dashboard/Dashboard";
 
 function App() {
-  return <DashboardContent />;
+	return <DashboardContent />;
 }
 
 export default App;

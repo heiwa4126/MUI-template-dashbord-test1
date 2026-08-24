@@ -4,23 +4,23 @@ import { ViteMinifyPlugin } from "vite-plugin-minify";
 
 // https://vitejs.dev/config/
 export default ({ mode }) => {
-  // Load app-level env vars to node-level env vars.
-  process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
+	// Load app-level env vars to node-level env vars.
+	process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
 
-  return defineConfig({
-    plugins: [react(), ViteMinifyPlugin({})],
-    base: process.env.VITE_BASE_URL || "/",
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            r: ["react", "react-dom"],
-            c: ["recharts"],
-            e: ["@emotion/react", "@emotion/styled"],
-            m: ["@mui/material", "@mui/icons-material"],
-          },
-        },
-      },
-    },
-  });
+	return defineConfig({
+		plugins: [react(), ViteMinifyPlugin({})],
+		base: process.env.VITE_BASE_URL || "/",
+		build: {
+			rollupOptions: {
+				output: {
+					manualChunks: {
+						r: ["react", "react-dom"],
+						c: ["recharts"],
+						e: ["@emotion/react", "@emotion/styled"],
+						m: ["@mui/material", "@mui/icons-material"]
+					}
+				}
+			}
+		}
+	});
 };

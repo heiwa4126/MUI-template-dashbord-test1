@@ -2,7 +2,15 @@
 
 [MUIのテンプレート](https://mui.com/material-ui/getting-started/templates/)
 の1つ [dashboard](https://mui.com/material-ui/getting-started/templates/dashboard/)
-を Vite(React+TypeScript+SWC)でやってみるテスト。
+を Vite+ でやってみるテスト。
+
+## 開発
+
+```sh
+vp i
+vp dev
+vp build && vp preview
+```
 
 ## 手順
 
